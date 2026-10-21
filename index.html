@@ -114,6 +114,10 @@ details p { margin-top:10px; color:#4a3d35; }
 .sticky { position:fixed; left:12px; right:12px; bottom:12px; z-index:5; display:none; }
 .sticky .btn { margin:0; padding:16px; font-size:17px; }
 @media (max-width:640px) { .sticky.show { display:block; } }
+.msgs { display:flex; gap:10px; margin-top:12px; }
+.msg { flex:1; text-align:center; text-decoration:none; font-weight:800; font-size:16px; color:var(--ink); background:var(--paper);
+       border:1.5px solid var(--line); border-left:6px solid var(--c); border-radius:14px; padding:13px 8px; }
+.final .msg { background:#3a2f29; color:var(--cream); border-color:#4a3d35; border-left-color:var(--c); }
 footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90px; }
 </style>
 </head>
@@ -141,6 +145,7 @@ footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90
     </div>
   </div>
   <a class="btn" data-cta href="#price">Забронировать место</a>
+  <div class="msgs" data-contacts></div>
 </header>
 
 <section class="wrap">
@@ -263,8 +268,10 @@ footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90
       <li>Сайт и все статьи остаются тебе</li>
       <li>Отчёт каждую неделю</li>
     </ul>
-    <a class="btn" data-cta href="#">Забронировать место</a>
+    <a class="btn" data-cta href="#">Забронировать место в Telegram</a>
     <p class="muted" style="font-size:14px;text-align:center;margin-top:12px" data-cta-hint></p>
+    <p class="muted" style="font-size:14px;text-align:center;margin-top:18px">или напиши, где тебе удобнее:</p>
+    <div class="msgs" data-contacts></div>
   </div>
 </section>
 
@@ -303,17 +310,20 @@ footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90
     <div class="dots" data-places style="margin-top:20px;color:var(--cream)"></div>
     <a class="btn" data-cta href="#">Забронировать место за 30 000 ₽</a>
     <p class="muted" style="font-size:14px;text-align:center;margin-top:12px" data-cta-hint></p>
+    <div class="msgs" data-contacts></div>
   </div>
 </section>
 
-<footer>Екатерина Толстоброва · контент-завод под ключ</footer>
+<footer>Екатерина Толстоброва · контент-завод под ключ<div class="msgs" data-contacts style="max-width:420px;margin:14px auto 0"></div></footer>
 <div class="sticky" id="sticky"><a class="btn" data-cta href="#price">Забронировать место · 30 000 ₽</a></div>
 
 <script>
 // ===== настройки: правь здесь =====
 var PLACES_LEFT = 5;          // сколько мест по 30 000 ₽ осталось (из 5)
-var AVITO_URL = "";            // ссылка на объявление Авито; пусто = кнопка ведёт к блоку цены
-var CTA_WORD = "БЕРУ";         // слово, которое человек пишет в чат для брони
+var TG = "ekaterina_plenkina"; // Телеграм Кати (без @)
+var WA = "79642501265";        // WhatsApp, номер в формате 7XXXXXXXXXX
+var MAX_URL = "";              // ссылка на профиль в MAX (из настроек профиля); пусто = кнопки MAX нет
+var CTA_WORD = "БЕРУ";         // слово, которое человек пишет для брони
 // ==================================
 
 document.querySelectorAll('[data-places]').forEach(function (el) {
@@ -321,11 +331,24 @@ document.querySelectorAll('[data-places]').forEach(function (el) {
   for (var i = 0; i < 5; i++) h += '<span class="dot' + (i < PLACES_LEFT ? ' on' : '') + '"></span>';
   el.innerHTML = h + '<span class="hand" style="font-size:24px">' + PLACES_LEFT + ' из 5</span>';
 });
-document.querySelectorAll('[data-cta]').forEach(function (a) {
-  if (AVITO_URL) { a.href = AVITO_URL; a.target = '_blank'; a.rel = 'noopener'; }
+var MSG = 'Привет, Катя! ' + CTA_WORD + ': хочу место на контент-завод';
+var LINKS = {
+  tg: 'https://t.me/' + TG + '?text=' + encodeURIComponent(MSG),
+  wa: 'https://wa.me/' + WA + '?text=' + encodeURIComponent(MSG),
+  max: MAX_URL
+};
+function ext(a, url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
+document.querySelectorAll('[data-cta]').forEach(function (a) { ext(a, LINKS.tg); });
+document.querySelectorAll('[data-contacts]').forEach(function (box) {
+  [['tg', 'Telegram', '#229ED9'], ['wa', 'WhatsApp', '#1FAF54'], ['max', 'MAX', '#6B4EFF']].forEach(function (c) {
+    if (!LINKS[c[0]]) return;
+    var a = document.createElement('a');
+    a.className = 'msg'; a.style.setProperty('--c', c[2]); a.textContent = c[1];
+    ext(a, LINKS[c[0]]); box.appendChild(a);
+  });
 });
 document.querySelectorAll('[data-cta-hint]').forEach(function (p) {
-  p.innerHTML = 'Кнопка вернёт тебя в чат на Авито. Напиши там <span class="word">' + CTA_WORD + '</span>, и я пришлю время для созвона.';
+  p.innerHTML = 'Напиши мне <span class="word">' + CTA_WORD + '</span>, и я пришлю время для созвона на 15 минут.';
 });
 var ph = document.querySelector('[data-photo]');
 var im = new Image();
