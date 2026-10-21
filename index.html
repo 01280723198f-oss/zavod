@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Контент-завод под ключ · Катя</title>
-<meta name="description" content="Каждый день ролик на трёх площадках, 10 веток в Threads и статья на твоём сайте. Под каждым роликом кодовое слово, по которому люди приходят к тебе в личку. Первые 5 мест: 30 000 ₽ за первый месяц.">
+<meta name="description" content="Каждый день ролик на трёх площадках, 10 веток в Threads и статья на твоём сайте, плюс 30 роликов и ChatPlace в подарок. Первые 5 мест: 30 000 ₽ за первый месяц.">
 <meta property="og:title" content="Забудь про контент. Он выходит сам каждый день">
 <meta property="og:description" content="Контент-завод под ключ: ролики, ветки, статьи и кодовые слова. Первые 5 мест: 30 000 ₽.">
 <style>
@@ -54,6 +54,12 @@ h3 { font-weight:900; font-size:20px; line-height:1.2; }
 .heroimg img { width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; object-position:50% 15%; border-radius:28px; }
 .heroimg figcaption { position:absolute; left:16px; bottom:16px; background:var(--paper); border-radius:16px; padding:6px 16px;
                       font-size:26px; box-shadow:0 6px 16px rgba(42,33,28,.15); }
+.gc { display:flex; gap:14px; align-items:center; padding:12px; }
+.gc img { width:96px; flex:none; aspect-ratio:9/14; object-fit:cover; border-radius:12px; }
+.gc .muted { font-size:15px; margin-top:4px; }
+@media (min-width:640px) { .gc { flex-direction:column; align-items:stretch; } .gc img { width:100%; } }
+.chip.gift { background:var(--butter); border-color:var(--butter); }
+tr.giftrow td { background:#FBEBC4; }
 .ava.has-photo { background-size:210%; background-position:50% 12%; }
 
 /* путь */
@@ -135,6 +141,7 @@ footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90
     <span class="chip"><b>30</b> роликов × 3 площадки</span>
     <span class="chip"><b>300</b> веток в Threads</span>
     <span class="chip"><b>30</b> статей на твоём сайте</span>
+    <span class="chip gift">🎁 <b>+30</b> роликов и ChatPlace в подарок</span>
   </div>
   <div class="card offer">
     <div>
@@ -178,7 +185,7 @@ footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90
   <div class="steps">
     <div class="step"><div class="num">0</div><div class="card"><div class="when">День 0</div><h3>Созвон 15 минут</h3><p class="muted">Показываю завод вживую на своих проектах. Ты решаешь, подходит ли тебе.</p></div></div>
     <div class="step"><div class="num">1</div><div class="card"><div class="when">День 1</div><h3>Распаковка</h3><p class="muted">Разговор на 40 минут: твои темы, слова, которыми ты говоришь с клиентами, твой продукт и к чему ведём людей.</p></div></div>
-    <div class="step"><div class="num">2</div><div class="card"><div class="when">День 2</div><h3>Сайт и кодовые слова</h3><p class="muted">Делаю тебе сайт для статей и настраиваю автоответ на слова. Ты выбираешь формат видео: с лицом или без.</p></div></div>
+    <div class="step"><div class="num">2</div><div class="card"><div class="when">День 2</div><h3>Сайт и кодовые слова</h3><p class="muted">Делаю тебе сайт для статей и настраиваю ChatPlace: он сам отдаёт статью по кодовому слову. Ты выбираешь формат видео: с лицом или без.</p></div></div>
     <div class="step hot"><div class="num">3</div><div class="card"><div class="when">День 3</div><h3>Первый ролик</h3><p class="muted">Выходит на трёх площадках, рядом первые 10 веток в Threads. Отсюда считаем твои 30 дней.</p></div></div>
     <div class="step hot"><div class="num">4</div><div class="card"><div class="when">Каждый день</div><h3>Ролик, 10 веток и статья под слово</h3><p class="muted">Ты только смотришь и отвечаешь тем, кто тебе пишет.</p></div></div>
     <div class="step"><div class="num">5</div><div class="card"><div class="when">Каждую неделю</div><h3>Отчёт</h3><p class="muted">Просмотры, сколько человек написали слово, сколько пришло заявок и что усиливаем дальше.</p></div></div>
@@ -194,10 +201,24 @@ footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90
     <tr><td>Ролики в Reels, YouTube Shorts и VK Клипы</td><td>30 × 3</td></tr>
     <tr><td>Ветки в Threads, по 10 в день</td><td>300</td></tr>
     <tr><td>Кодовые слова с автоответом в личку</td><td>30</td></tr>
+    <tr class="giftrow"><td>🎁 Подарок: ИИ-мультики, моушен-ролики и ролики с нейроописанием</td><td>+30</td></tr>
+    <tr class="giftrow"><td>🎁 Подарок: настроенная воронка ChatPlace по кодовым словам</td><td>1</td></tr>
     <tr><td>Статьи-прогревы на твоём сайте</td><td>30</td></tr>
     <tr><td>Сайт для статей, остаётся тебе</td><td>1</td></tr>
     <tr><td>Отчёт: слова, заявки, что усилить</td><td>раз в неделю</td></tr>
   </table>
+</section>
+
+<section class="wrap">
+  <div class="kick">Подарок от меня</div>
+  <h2>+30 роликов в месяц <span class="em">для ещё большего охвата</span></h2>
+  <p class="lead">К твоим 30 роликам добавляю ещё 30 в форматах, которые сейчас лучше всего досматривают. Тоже на трёх площадках.</p>
+  <div class="grid g3">
+    <div class="card gc"><img src="img/gift-multik.jpg" alt="Пример ИИ-мультика"><div><h3>ИИ-мультики</h3><div class="muted">сказки и истории по твоей теме, которые смотрят до конца</div></div></div>
+    <div class="card gc"><img src="img/gift-motion.jpg" alt="Пример моушен-ролика"><div><h3>Моушен-ролики</h3><div class="muted">анимация и текст, без единой съёмки</div></div></div>
+    <div class="card gc"><img src="img/gift-neuro.jpg" alt="Пример ролика с нейроописанием"><div><h3>Ролики с нейроописанием</h3><div class="muted">цепляющий заголовок на видео и описание, которое дочитывают</div></div></div>
+  </div>
+  <div class="card dark" style="margin-top:14px"><h3>🎁 И настроенная воронка ChatPlace</h3><p style="margin-top:6px;color:#CDBFB3">Человек пишет кодовое слово в комментариях или в директ, и ChatPlace сам отправляет ему статью. Без тебя, днём и ночью.</p></div>
 </section>
 
 <section class="wrap">
@@ -238,7 +259,7 @@ footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90
   <h2>Не посты в ленту, <span class="em">а путь до заявки</span></h2>
   <div class="cmp">
     <div class="h muted">Обычное ведение</div><div class="h em">Контент-завод</div>
-    <div class="row">Выходит за месяц</div><div class="l">8–12 постов</div><div class="r">90 публикаций роликов и 300 веток</div>
+    <div class="row">Выходит за месяц</div><div class="l">8–12 постов</div><div class="r">60 роликов на 3 площадки и 300 веток</div>
     <div class="row">Куда ведёт</div><div class="l">никуда, «охваты»</div><div class="r">слово → личка → статья → заявка</div>
     <div class="row">Что остаётся тебе</div><div class="l">посты в ленте</div><div class="r">сайт со статьями и люди, которые написали</div>
     <div class="row">Отчёт</div><div class="l">лайки и охваты</div><div class="r">сколько написали и сколько пришло заявок</div>
@@ -267,6 +288,7 @@ footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90
       <li>30 кодовых слов и 30 статей на твоём сайте</li>
       <li>Сайт и все статьи остаются тебе</li>
       <li>Отчёт каждую неделю</li>
+      <li><b>🎁 В подарок:</b> +30 роликов (ИИ-мультики, моушен, нейроописания) и настроенный ChatPlace</li>
     </ul>
     <a class="btn" data-cta href="#">Забронировать место в Telegram</a>
     <p class="muted" style="font-size:14px;text-align:center;margin-top:12px" data-cta-hint></p>
@@ -298,7 +320,7 @@ footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90
     <details><summary>Где будут лежать статьи?</summary><p>На твоём сайте, который я сделаю в первые дни. Он твой, даже если мы не продолжим после первого месяца.</p></details>
     <details><summary>Сколько придёт подписчиков и заявок?</summary><p>Заранее цифру не назову, и тебе не советую верить тем, кто называет. Зависит от ниши и от того, как ты отвечаешь людям. Что я гарантирую: контент выходит каждый день, и каждую неделю ты видишь, сколько человек написали слово и сколько пришло заявок.</p></details>
     <details><summary>Подойдёт ли моей нише?</summary><p>Психологи, коучи, нутрициологи, логопеды, тарологи, мастера, онлайн-школы, локальный бизнес. Если сомневаешься, напиши нишу в чат, отвечу честно.</p></details>
-    <details><summary>Что от меня нужно?</summary><p>Один созвон на распаковку, доступы к аккаунтам и 10 минут в день на ответы людям, которые тебе пишут.</p></details>
+    <details><summary>Что от меня нужно?</summary><p>Один созвон на распаковку, доступы к аккаунтам и 10 минут в день на ответы людям, которые тебе пишут. ChatPlace я настраиваю в подарок, но сам сервис платный: после 14 пробных дней подписку оплачиваешь ты, аккаунт твой.</p></details>
     <details><summary>Почему мест только 5?</summary><p>Каждому клиенту я настраиваю завод под его голос и нишу, это ручная работа в первые дни. Пять клиентов я веду качественно, больше пока нет.</p></details>
   </div>
 </section>
