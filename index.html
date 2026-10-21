@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контент-завод под ключ · Катя</title>
+<meta name="description" content="Каждый день ролик на трёх площадках, 10 веток в Threads и статья на твоём сайте. Под каждым роликом кодовое слово, по которому люди приходят к тебе в личку. Первые 5 мест: 30 000 ₽ за первый месяц.">
+<meta property="og:title" content="Забудь про контент. Он выходит сам каждый день">
+<meta property="og:description" content="Контент-завод под ключ: ролики, ветки, статьи и кодовые слова. Первые 5 мест: 30 000 ₽.">
+<style>
+@font-face { font-family: M; src: url(fonts/montserrat.ttf); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: H; src: url(fonts/caveat.ttf); font-weight: 400 700; font-display: swap; }
+:root {
+  --cream:#F6EFE5; --paper:#FFFAF3; --ink:#2A211C; --mute:#66574E; --terra:#A9461F; --terra2:#E7A487;
+  --sage:#6E8063; --sage2:#DCE3D3; --butter:#F1CB6E; --line:#E6D9C8;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { background:var(--cream); color:var(--ink); font-family:M, system-ui, sans-serif; font-weight:500; font-size:17px; line-height:1.55; }
+img { max-width:100%; display:block; }
+.wrap { max-width:760px; margin:0 auto; padding:0 16px; }
+section.wrap { padding-top:56px; padding-bottom:56px; }
+body { overflow-x:hidden; }
+.kick { font-weight:800; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--terra); }
+h1 { font-weight:900; font-size:clamp(36px,8vw,58px); line-height:1.02; letter-spacing:-.02em; margin-top:14px; }
+h2 { font-weight:900; font-size:clamp(28px,6vw,40px); line-height:1.08; letter-spacing:-.015em; margin-top:10px; }
+h3 { font-weight:900; font-size:20px; line-height:1.2; }
+.em { color:var(--terra); }
+.hand { font-family:H, cursive; font-weight:700; color:var(--terra); }
+.lead { font-size:19px; margin-top:18px; color:#4a3d35; }
+.card { background:var(--paper); border:1.5px solid var(--line); border-radius:24px; padding:22px; }
+.dark { background:var(--ink); color:var(--cream); border-color:var(--ink); }
+.word { display:inline-block; background:var(--butter); color:var(--ink); border-radius:10px; padding:2px 10px; font-weight:900; letter-spacing:.04em; }
+.btn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; background:var(--terra); color:#fff;
+       text-decoration:none; font-weight:800; font-size:19px; border-radius:18px; padding:20px 24px; margin-top:26px;
+       box-shadow:0 8px 20px rgba(42,33,28,.18); transition:transform .15s ease; text-align:center; }
+.btn:active { transform:scale(.98); }
+.muted { color:var(--mute); }
+.grid { display:grid; gap:14px; margin-top:28px; }
+@media (min-width:640px) { .g2 { grid-template-columns:1fr 1fr; } .g3 { grid-template-columns:1fr 1fr 1fr; } }
+
+/* герой */
+.hero { padding-top:36px; }
+.chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+.chip { background:var(--paper); border:1.5px solid var(--line); border-radius:999px; padding:9px 16px; font-weight:700; font-size:15px; }
+.chip b { color:var(--terra); font-weight:900; }
+.offer { margin-top:28px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; }
+.price { font-weight:900; font-size:40px; line-height:1; }
+.dots { display:flex; align-items:center; gap:8px; margin-top:14px; font-weight:700; font-size:15px; flex-wrap:wrap; }
+.dot { width:20px; height:20px; border-radius:50%; background:var(--line); }
+.dot.on { background:var(--terra); }
+
+.heroimg { position:relative; margin-top:24px; }
+.heroimg img { width:100%; height:auto; aspect-ratio:4/3; object-fit:cover; object-position:50% 15%; border-radius:28px; }
+.heroimg figcaption { position:absolute; left:16px; bottom:16px; background:var(--paper); border-radius:16px; padding:6px 16px;
+                      font-size:26px; box-shadow:0 6px 16px rgba(42,33,28,.15); }
+.ava.has-photo { background-size:210%; background-position:50% 12%; }
+
+/* путь */
+.steps { position:relative; margin-top:30px; display:grid; gap:14px; }
+.steps:before { content:""; position:absolute; left:23px; top:24px; bottom:24px; border-left:2px dashed var(--line); }
+.step { display:flex; gap:16px; align-items:flex-start; position:relative; }
+.num { flex:none; width:48px; height:48px; border-radius:50%; background:var(--ink); color:#fff; display:flex; align-items:center;
+       justify-content:center; font-weight:900; font-size:18px; }
+.step.hot .num { background:var(--terra); }
+.step .card { flex:1; padding:16px 20px; }
+.when { font-weight:800; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--terra); }
+
+/* путь зрителя */
+.flow { display:grid; gap:10px; margin-top:28px; }
+.flow .card { display:flex; gap:16px; align-items:center; padding:14px 18px; }
+.flow .ico { font-size:30px; width:44px; text-align:center; flex:none; }
+
+/* что внутри */
+table { width:100%; border-collapse:separate; border-spacing:0 8px; margin-top:20px; }
+td { background:var(--paper); padding:14px 16px; vertical-align:top; }
+td:first-child { border-radius:16px 0 0 16px; font-weight:700; }
+td:last-child { border-radius:0 16px 16px 0; text-align:right; font-weight:900; color:var(--terra); }
+
+/* примеры */
+.proj .thumbs { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr); grid-template-rows:1fr 1fr; gap:8px; }
+.proj .thumbs img { width:100%; height:100%; min-width:0; object-fit:cover; border-radius:14px; }
+.proj .thumbs img:first-child { grid-row:1 / 3; aspect-ratio:9/16; }
+.proj h3 { margin-top:14px; }
+.tag { display:inline-block; margin-top:6px; font-weight:800; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--terra); }
+
+/* сравнение */
+.cmp { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px; margin-top:24px; font-size:15px; }
+.cmp div { padding:12px 14px; border-radius:14px; }
+.cmp .h { font-weight:900; font-size:14px; padding-bottom:0; }
+.cmp .l { background:var(--paper); border:1.5px solid var(--line); color:var(--mute); }
+.cmp .r { background:var(--ink); color:var(--cream); font-weight:700; }
+.cmp .row { grid-column:1 / 3; font-weight:800; font-size:13px; color:var(--mute); padding:10px 2px 0; text-transform:uppercase; letter-spacing:.06em; }
+
+/* обо мне */
+.me { display:flex; gap:20px; align-items:center; flex-wrap:wrap; margin-top:20px; }
+.ava { width:120px; height:120px; border-radius:50%; background:var(--terra2) center/cover; flex:none; display:flex; align-items:center;
+       justify-content:center; font-family:H; font-weight:700; font-size:44px; color:var(--terra); border:5px solid var(--paper); }
+
+/* честно */
+.yes li, .no li { list-style:none; padding-left:30px; position:relative; margin-top:10px; }
+.yes li:before { content:"✓"; position:absolute; left:0; color:var(--sage); font-weight:900; }
+.no li:before { content:"✕"; position:absolute; left:0; color:var(--terra); font-weight:900; }
+
+/* FAQ */
+details { background:var(--paper); border:1.5px solid var(--line); border-radius:18px; padding:16px 20px; margin-top:10px; }
+summary { font-weight:800; cursor:pointer; list-style:none; display:flex; justify-content:space-between; gap:10px; }
+summary:after { content:"+"; color:var(--terra); font-weight:900; }
+details[open] summary:after { content:"−"; }
+details p { margin-top:10px; color:#4a3d35; }
+
+.final { background:var(--ink); color:var(--cream); border-radius:32px; padding:36px 24px; margin:0 0 40px; }
+.final .muted { color:#CDBFB3; }
+.sticky { position:fixed; left:12px; right:12px; bottom:12px; z-index:5; display:none; }
+.sticky .btn { margin:0; padding:16px; font-size:17px; }
+@media (max-width:640px) { .sticky.show { display:block; } }
+footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90px; }
+</style>
+</head>
+<body>
+
+<header class="wrap hero">
+  <div class="kick">Контент-завод под ключ · для экспертов</div>
+  <h1>Забудь про контент. <span class="em">Он выходит сам</span> и ведёт людей к тебе в личку</h1>
+  <p class="lead">Каждый день ролик на трёх площадках, 10 веток в Threads и статья на твоём сайте. Под каждым роликом кодовое слово: человек пишет его и попадает к тебе.</p>
+  <figure class="heroimg">
+    <img src="img/katya-laptop.jpg" alt="Катя с ноутбуком" width="1400" height="1271">
+    <figcaption class="hand">это я, Катя. Соберу твой завод за 3 дня</figcaption>
+  </figure>
+  <div class="chips">
+    <span class="chip"><b>30</b> роликов × 3 площадки</span>
+    <span class="chip"><b>300</b> веток в Threads</span>
+    <span class="chip"><b>30</b> статей на твоём сайте</span>
+  </div>
+  <div class="card offer">
+    <div>
+      <div class="kick">Первые 5 клиентов</div>
+      <div class="price" style="margin-top:6px">30 000 ₽</div>
+      <div class="muted" style="font-size:15px">за первый месяц, дальше 60 000 ₽/мес</div>
+      <div class="dots" data-places></div>
+    </div>
+  </div>
+  <a class="btn" data-cta href="#price">Забронировать место</a>
+</header>
+
+<section class="wrap">
+  <div class="kick">Сейчас у тебя так</div>
+  <h2>Контент съедает вечера, <span class="em">а в личку не пишут</span></h2>
+  <div class="grid g3">
+    <div class="card"><h3>Вечер после всех дел</h3><p class="muted" style="margin-top:8px">Садишься за телефон и не знаешь, что выложить. Снова.</p></div>
+    <div class="card"><h3>Выложила, тишина</h3><p class="muted" style="margin-top:8px">Пара лайков от знакомых, а заявок как не было, так и нет.</p></div>
+    <div class="card"><h3>Платила SMM-щику</h3><p class="muted" style="margin-top:8px">Лента стала красивой. Клиентов от этого не прибавилось.</p></div>
+  </div>
+  <p class="lead">Дело не в тебе. Посты просто лежат в ленте и никуда не ведут. Завод устроен иначе: каждый ролик ведёт человека дальше, до сообщения тебе.</p>
+</section>
+
+<section class="wrap">
+  <div class="kick">Как зритель становится клиентом</div>
+  <h2>Путь одного человека <span class="em">от ролика до заявки</span></h2>
+  <div class="flow">
+    <div class="card"><span class="ico">👀</span><div><h3>Видит твой ролик</h3><span class="muted">в Reels, YouTube Shorts или VK Клипах</span></div></div>
+    <div class="card"><span class="ico">💬</span><div><h3>Пишет слово в комментариях</h3><span class="muted">например, <span class="word">ГАЙД</span></span></div></div>
+    <div class="card"><span class="ico">📩</span><div><h3>Сразу получает в личку статью</h3><span class="muted">автоматически, тебе ничего не нужно делать</span></div></div>
+    <div class="card"><span class="ico">📖</span><div><h3>Читает про тему, про тебя и твою услугу</h3><span class="muted">и начинает тебе доверять</span></div></div>
+    <div class="card dark"><span class="ico">🙋‍♀️</span><div><h3>Пишет тебе: «хочу к вам»</h3><span style="color:var(--terra2)">тёплая заявка, а не «сколько стоит?» от случайного человека</span></div></div>
+  </div>
+  <p class="lead">Так 30 раз за месяц, по ролику в день. Плюс ветки в Threads, которые собирают людей отдельно.</p>
+</section>
+
+<section class="wrap">
+  <div class="kick">Твой путь по шагам</div>
+  <h2>Что будет <span class="em">после заявки</span></h2>
+  <div class="steps">
+    <div class="step"><div class="num">0</div><div class="card"><div class="when">День 0</div><h3>Созвон 15 минут</h3><p class="muted">Показываю завод вживую на своих проектах. Ты решаешь, подходит ли тебе.</p></div></div>
+    <div class="step"><div class="num">1</div><div class="card"><div class="when">День 1</div><h3>Распаковка</h3><p class="muted">Разговор на 40 минут: твои темы, слова, которыми ты говоришь с клиентами, твой продукт и к чему ведём людей.</p></div></div>
+    <div class="step"><div class="num">2</div><div class="card"><div class="when">День 2</div><h3>Сайт и кодовые слова</h3><p class="muted">Делаю тебе сайт для статей и настраиваю автоответ на слова. Ты выбираешь формат видео: с лицом или без.</p></div></div>
+    <div class="step hot"><div class="num">3</div><div class="card"><div class="when">День 3</div><h3>Первый ролик</h3><p class="muted">Выходит на трёх площадках, рядом первые 10 веток в Threads. Отсюда считаем твои 30 дней.</p></div></div>
+    <div class="step hot"><div class="num">4</div><div class="card"><div class="when">Каждый день</div><h3>Ролик, 10 веток и статья под слово</h3><p class="muted">Ты только смотришь и отвечаешь тем, кто тебе пишет.</p></div></div>
+    <div class="step"><div class="num">5</div><div class="card"><div class="when">Каждую неделю</div><h3>Отчёт</h3><p class="muted">Просмотры, сколько человек написали слово, сколько пришло заявок и что усиливаем дальше.</p></div></div>
+    <div class="step"><div class="num">6</div><div class="card"><div class="when">День 30</div><h3>Итоги и решение</h3><p class="muted">Разбираем месяц. Продолжаем за 60 000 ₽/мес или останавливаемся. Сайт и статьи в любом случае остаются тебе.</p></div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="kick">Что внутри за 30 дней</div>
+  <h2>Весь завод <span class="em">одним списком</span></h2>
+  <table>
+    <tr><td>Распаковка: темы, голос, продукт</td><td>1 созвон</td></tr>
+    <tr><td>Ролики в Reels, YouTube Shorts и VK Клипы</td><td>30 × 3</td></tr>
+    <tr><td>Ветки в Threads, по 10 в день</td><td>300</td></tr>
+    <tr><td>Кодовые слова с автоответом в личку</td><td>30</td></tr>
+    <tr><td>Статьи-прогревы на твоём сайте</td><td>30</td></tr>
+    <tr><td>Сайт для статей, остаётся тебе</td><td>1</td></tr>
+    <tr><td>Отчёт: слова, заявки, что усилить</td><td>раз в неделю</td></tr>
+  </table>
+</section>
+
+<section class="wrap">
+  <div class="kick">Примеры с завода</div>
+  <h2>Три ниши, <span class="em">один конвейер</span></h2>
+  <div class="grid g3">
+    <div class="card proj">
+      <div class="thumbs"><img src="img/zhenya-1.jpg" alt="Ролик Жени с лицом"><img src="img/zhenya-2.jpg" alt="Ролик Жени с графикой"><img src="img/zhenya-3.jpg" alt="Ролик Жени с ИИ-фото"></div>
+      <h3>Женя</h3><div class="muted">эксперт по ИИ</div><span class="tag">ролики с лицом</span>
+    </div>
+    <div class="card proj">
+      <div class="thumbs"><img src="img/zarema-1.jpg" alt="Ролик Заремы"><img src="img/zarema-2.jpg" alt="Ролик Заремы"><img src="img/zarema-3.jpg" alt="Ролик Заремы"></div>
+      <h3>Зарема</h3><div class="muted">таролог</div><span class="tag">ИИ-аватар, 0 съёмок</span>
+    </div>
+    <div class="card proj">
+      <div class="thumbs"><img src="img/sorokin-1.jpg" alt="Ролик Андрея Сорокина"><img src="img/sorokin-2.jpg" alt="Ролик Андрея Сорокина"><img src="img/sorokin-3.jpg" alt="Ролик Андрея Сорокина"></div>
+      <h3>Андрей Сорокин</h3><div class="muted">авто из Китая и Кореи</div><span class="tag">ИИ-аватар, 0 съёмок</span>
+    </div>
+  </div>
+  <p class="lead">На созвоне покажу каждый проект изнутри: как ролик рождается, где лежат статьи и что приходит в личку.</p>
+</section>
+
+<section class="wrap">
+  <div class="kick">Снимать каждый день не нужно</div>
+  <h2>Выбери, <span class="em">как тебе удобнее</span></h2>
+  <div class="grid g2">
+    <div class="card"><div style="font-size:36px">📱</div><h3 style="margin-top:10px">С твоим лицом</h3>
+      <p class="muted" style="margin-top:8px">Раз в неделю записываешь 10–15 минут на телефон. Нарезка, заголовки, субтитры и описания на мне.</p>
+      <div class="hand" style="font-size:30px;margin-top:12px">15 минут в неделю</div></div>
+    <div class="card dark"><div style="font-size:36px">✨</div><h3 style="margin-top:10px">Без твоего лица</h3>
+      <p style="margin-top:8px;color:#CDBFB3">Ролики с анимацией и текстом или твой цифровой аватар, как у Заремы и Андрея. Ты только согласуешь темы.</p>
+      <div class="hand" style="font-size:30px;margin-top:12px;color:var(--butter)">0 минут съёмки</div></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="kick">Почему дороже обычного SMM</div>
+  <h2>Не посты в ленту, <span class="em">а путь до заявки</span></h2>
+  <div class="cmp">
+    <div class="h muted">Обычное ведение</div><div class="h em">Контент-завод</div>
+    <div class="row">Выходит за месяц</div><div class="l">8–12 постов</div><div class="r">90 публикаций роликов и 300 веток</div>
+    <div class="row">Куда ведёт</div><div class="l">никуда, «охваты»</div><div class="r">слово → личка → статья → заявка</div>
+    <div class="row">Что остаётся тебе</div><div class="l">посты в ленте</div><div class="r">сайт со статьями и люди, которые написали</div>
+    <div class="row">Отчёт</div><div class="l">лайки и охваты</div><div class="r">сколько написали и сколько пришло заявок</div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="kick">Кто будет вести</div>
+  <div class="me">
+    <div class="ava" data-photo="img/katya.jpg">Катя</div>
+    <div style="flex:1;min-width:240px">
+      <div class="hand" style="font-size:40px;line-height:1">Привет, я Катя</div>
+      <p style="margin-top:10px">Маркетолог с 2018 года и мама двоих. Завод я собрала сама, потому что времени на соцсети с двумя детьми просто нет. Он каждый день выпускает ролики, ветки и статьи для моих проектов, а я в это время живу свою жизнь. Теперь ставлю такой же экспертам.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="price">
+  <div class="card" style="padding:28px">
+    <div class="kick">Первые 5 клиентов</div>
+    <div class="price" style="margin-top:8px;font-size:52px">30 000 ₽</div>
+    <p class="muted">за первые 30 дней. Дальше 60 000 ₽ в месяц, продолжать или нет решаешь ты.</p>
+    <div class="dots" data-places style="margin-top:18px"></div>
+    <ul class="yes" style="margin-top:20px">
+      <li>30 роликов на трёх площадках и 300 веток</li>
+      <li>30 кодовых слов и 30 статей на твоём сайте</li>
+      <li>Сайт и все статьи остаются тебе</li>
+      <li>Отчёт каждую неделю</li>
+    </ul>
+    <a class="btn" data-cta href="#">Забронировать место</a>
+    <p class="muted" style="font-size:14px;text-align:center;margin-top:12px" data-cta-hint></p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="kick">Честно</div>
+  <h2>Что обещаю <span class="em">и что нет</span></h2>
+  <div class="grid g2">
+    <div class="card"><h3>Обещаю</h3><ul class="yes">
+      <li>Каждый день выходит ролик, 10 веток и статья</li>
+      <li>Под каждым роликом слово, которое ведёт к тебе</li>
+      <li>Ты видишь в отчёте, сколько человек пришло</li></ul></div>
+    <div class="card"><h3>Не обещаю</h3><ul class="no">
+      <li>Тысячу подписчиков за неделю</li>
+      <li>Что каждый ролик залетит</li>
+      <li>Заявки без твоего ответа: писать людям будешь ты</li></ul></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="kick">Вопросы</div>
+  <h2>Что обычно спрашивают</h2>
+  <div style="margin-top:20px">
+    <details><summary>Мне точно не нужно ничего снимать?</summary><p>Можно не снимать вообще: ролики с анимацией или твой цифровой аватар. Если хочешь живое лицо, достаточно 10–15 минут записи раз в неделю.</p></details>
+    <details><summary>Где будут лежать статьи?</summary><p>На твоём сайте, который я сделаю в первые дни. Он твой, даже если мы не продолжим после первого месяца.</p></details>
+    <details><summary>Сколько придёт подписчиков и заявок?</summary><p>Заранее цифру не назову, и тебе не советую верить тем, кто называет. Зависит от ниши и от того, как ты отвечаешь людям. Что я гарантирую: контент выходит каждый день, и каждую неделю ты видишь, сколько человек написали слово и сколько пришло заявок.</p></details>
+    <details><summary>Подойдёт ли моей нише?</summary><p>Психологи, коучи, нутрициологи, логопеды, тарологи, мастера, онлайн-школы, локальный бизнес. Если сомневаешься, напиши нишу в чат, отвечу честно.</p></details>
+    <details><summary>Что от меня нужно?</summary><p>Один созвон на распаковку, доступы к аккаунтам и 10 минут в день на ответы людям, которые тебе пишут.</p></details>
+    <details><summary>Почему мест только 5?</summary><p>Каждому клиенту я настраиваю завод под его голос и нишу, это ручная работа в первые дни. Пять клиентов я веду качественно, больше пока нет.</p></details>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="final">
+    <div class="hand" style="font-size:36px;color:var(--butter)">через 3 дня</div>
+    <h2 style="margin-top:4px">твой первый ролик уже в ленте, а ты в это время <span style="color:var(--terra2)">живёшь свою жизнь</span></h2>
+    <div class="dots" data-places style="margin-top:20px;color:var(--cream)"></div>
+    <a class="btn" data-cta href="#">Забронировать место за 30 000 ₽</a>
+    <p class="muted" style="font-size:14px;text-align:center;margin-top:12px" data-cta-hint></p>
+  </div>
+</section>
+
+<footer>Екатерина Толстоброва · контент-завод под ключ</footer>
+<div class="sticky" id="sticky"><a class="btn" data-cta href="#price">Забронировать место · 30 000 ₽</a></div>
+
+<script>
+// ===== настройки: правь здесь =====
+var PLACES_LEFT = 5;          // сколько мест по 30 000 ₽ осталось (из 5)
+var AVITO_URL = "";            // ссылка на объявление Авито; пусто = кнопка ведёт к блоку цены
+var CTA_WORD = "БЕРУ";         // слово, которое человек пишет в чат для брони
+// ==================================
+
+document.querySelectorAll('[data-places]').forEach(function (el) {
+  var h = '<span>Осталось мест:</span>';
+  for (var i = 0; i < 5; i++) h += '<span class="dot' + (i < PLACES_LEFT ? ' on' : '') + '"></span>';
+  el.innerHTML = h + '<span class="hand" style="font-size:24px">' + PLACES_LEFT + ' из 5</span>';
+});
+document.querySelectorAll('[data-cta]').forEach(function (a) {
+  if (AVITO_URL) { a.href = AVITO_URL; a.target = '_blank'; a.rel = 'noopener'; }
+});
+document.querySelectorAll('[data-cta-hint]').forEach(function (p) {
+  p.innerHTML = 'Кнопка вернёт тебя в чат на Авито. Напиши там <span class="word">' + CTA_WORD + '</span>, и я пришлю время для созвона.';
+});
+var ph = document.querySelector('[data-photo]');
+var im = new Image();
+im.onload = function () { ph.style.backgroundImage = 'url(' + ph.dataset.photo + ')'; ph.textContent = ''; ph.classList.add('has-photo'); };
+im.src = ph.dataset.photo;
+var st = document.getElementById('sticky');
+addEventListener('scroll', function () { st.classList.toggle('show', scrollY > 700 && (innerHeight + scrollY) < document.body.scrollHeight - 400); }, { passive: true });
+</script>
+</body>
+</html>
