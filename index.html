@@ -58,6 +58,13 @@ h3 { font-weight:900; font-size:20px; line-height:1.2; }
 .gc img { width:96px; flex:none; aspect-ratio:9/14; object-fit:cover; border-radius:12px; }
 .gc .muted { font-size:15px; margin-top:4px; }
 @media (min-width:640px) { .gc { flex-direction:column; align-items:stretch; } .gc img { width:100%; } }
+.proofs { display:grid; gap:14px; margin-top:26px; }
+@media (min-width:640px) { .proofs { grid-template-columns:repeat(3,1fr); } }
+.pf { padding:12px; margin:0; }
+.pf img { width:100%; height:260px; object-fit:cover; object-position:top; border-radius:14px; background:#fff; }
+.pf figcaption { padding:12px 4px 2px; font-size:19px; line-height:1.3; }
+.pf figcaption b { font-weight:900; color:var(--terra); }
+.pf .muted { display:block; font-size:15px; margin-top:4px; }
 .chip.gift { background:var(--butter); border-color:var(--butter); }
 .chip.gift b { color:var(--ink); }
 tr.giftrow td { background:#FBEBC4; }
@@ -178,6 +185,19 @@ footer { text-align:center; font-size:13px; color:var(--mute); padding:0 16px 90
     <div class="card dark"><span class="ico">🙋‍♀️</span><div><h3>Пишет тебе: «хочу к вам»</h3><span style="color:var(--terra2)">тёплая заявка, а не «сколько стоит?» от случайного человека</span></div></div>
   </div>
   <p class="lead">Так 30 раз за месяц, по ролику в день. Плюс ветки в Threads, которые собирают людей отдельно.</p>
+</section>
+
+<section class="wrap">
+  <div class="kick">Это уже работает</div>
+  <h2>Цифры с моих проектов, <span class="em">без фотошопа</span></h2>
+  <div class="proofs">
+    <figure class="card pf"><img style="object-position:50% 46%" src="img/proof-reel.jpg" alt="Статистика пробного ролика: 6,5 тыс. просмотров, 45 комментариев">
+      <figcaption><b>45 кодовых слов</b> с одного ролика<span class="muted">6,5 тыс. просмотров, 45 человек написали слово и ушли в воронку</span></figcaption></figure>
+    <figure class="card pf"><img style="object-fit:contain" src="img/proof-threads.jpg" alt="Статистика Threads: 100 294 просмотра, 43 960 зрителей">
+      <figcaption><b>100 тыс. просмотров</b> с одной ветки<span class="muted">100 294 просмотра и почти 44 тыс. зрителей в Threads</span></figcaption></figure>
+    <figure class="card pf"><img src="img/proof-follows.jpg" alt="Уведомления: новые подписки и репосты роликов">
+      <figcaption><b>Подписки каждый день</b><span class="muted">люди подписываются и делятся роликами, пока я занимаюсь своими делами</span></figcaption></figure>
+  </div>
 </section>
 
 <section class="wrap">
